@@ -189,5 +189,6 @@ document.getElementById('payBill')
 
         //Reset 
          Reset('acc-Num','pay-pin','amount-pay') ;
+        //  Reset('acc-Num','pay-pin','amount-pay') ;
 
     })
