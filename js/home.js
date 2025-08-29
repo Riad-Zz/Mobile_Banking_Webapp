@@ -27,6 +27,29 @@ function Reset(num,pin,amount){
         document.getElementById(amount).value = " " ;
 }
 
+//Common Transition History 
+function transistionHistory(name){
+    const newChild = document.createElement('div') ;
+    newChild.innerHTML = `
+        <div class="flex justify-between items-center  bg-white rounded-[12px] mb-[12px] p-4">
+            <div class="left-side flex items-center gap-3">
+                <div class="rounded-full bg-[#0808080d] h-[45px] w-[45px] flex justify-center items-center">
+                    <img src="assets/wallet1.png" alt="">
+                </div>
+                <div>
+                    <p class="font-semibold text-[#080808b3]">${name}</p>
+                <p class="text-[#080808b3] text-[12px]">${new Date().toLocaleTimeString()}</p>
+                </div>
+            </div>
+            <div class="right">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+    `
+    const parent = document.getElementById('all-card-container') ;
+    parent.prepend(newChild) ;
+}
+
 //Add Money Feature
 document.getElementById('addMoney')
     .addEventListener('click' , function(e){
@@ -75,6 +98,14 @@ document.getElementById('pay')
         toggling('payBill') ;
     })
 
+//Transition History Feature
+document.getElementById('transition')
+    .addEventListener('click',function(e){
+        e.stopPropagation() ;
+        selectIconColor('transition') ;
+        toggling('Transaction-History') ;
+    })
+
 //Addd Money Functionality 
 document.getElementById('addMoney-btn')
     .addEventListener('click',function (e){
@@ -94,7 +125,7 @@ document.getElementById('addMoney-btn')
         document.getElementById('initial-money').innerText = newBalace ;
 
         //Reset 
-      
+        transistionHistory('Add Money') ;
         Reset('account-number','acPin','addAmount') ;
 
     })
@@ -125,7 +156,7 @@ document.getElementById('Cashout-btn')
         
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
-
+        transistionHistory('Cash Out') ;
         //Reset 
          Reset('agentNumber','cashoutPin','cashout-amount') ;
 
@@ -149,6 +180,7 @@ document.getElementById('transfer-btn')
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
 
+        transistionHistory('Money Transfer') ;
         //Reset 
         Reset('agentNum','trabsferPin','transfer-amount') ;
     })
@@ -166,7 +198,7 @@ document.getElementById('bonus-btn')
             document.getElementById('initial-money').innerText = newBalace ;
         }  
         //Reset 
-
+        transistionHistory('Bonus') ;
     })
 
 //Pay Bill Feature
@@ -188,6 +220,7 @@ document.getElementById('payBill')
         document.getElementById('initial-money').innerText = newBalace ;
 
         //Reset 
+        transistionHistory('Pay Bill') ;
          Reset('acc-Num','pay-pin','amount-pay') ;
         //  Reset('acc-Num','pay-pin','amount-pay') ;
 
