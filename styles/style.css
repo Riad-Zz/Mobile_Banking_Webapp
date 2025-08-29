@@ -8,3 +8,9 @@
 body{
     font-family: "Outfit", sans-serif;
 }
+
+.quicksand-font{
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
