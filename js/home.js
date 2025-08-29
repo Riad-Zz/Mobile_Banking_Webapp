@@ -1,6 +1,8 @@
 console.log("Connected2") ;
 
-//Selection Color Control 
+//---------------------Shared Functions----------------------
+
+//-- -------Selection Color Control------------------------- 
 const allCards = document.getElementsByClassName('card') ;
 function selectIconColor(id){
     for(const card of allCards){
@@ -10,7 +12,7 @@ function selectIconColor(id){
     selectedCard.style.backgroundColor = '#0874f20d' ;
 }
 
-//All Form display COntrol Toggling Feature 
+//---------All Form display COntrol Toggling Feature------------- 
 const allForms = document.getElementsByClassName('form') ;
 function toggling(id){
     for(form of allForms){
@@ -20,14 +22,14 @@ function toggling(id){
     currentForm.style.display = 'block' ;
 }
 
-//Form Reset Functionality 
+//--------------Form Reset Functionality---------------- 
 function Reset(num,pin,amount){
     document.getElementById(num).value = " "
         document.getElementById(pin).value = " " ;
         document.getElementById(amount).value = " " ;
 }
 
-//Common Transition History 
+//-----------------Common Transition History---------------- 
 function transistionHistory(name){
     const newChild = document.createElement('div') ;
     newChild.innerHTML = `
@@ -50,7 +52,9 @@ function transistionHistory(name){
     parent.prepend(newChild) ;
 }
 
-//Add Money Feature
+//--------------------Basic Features------------------------
+
+//-----------------Add Money Feature----------------------
 document.getElementById('addMoney')
     .addEventListener('click' , function(e){
         e.stopPropagation() ;
@@ -61,7 +65,7 @@ document.getElementById('addMoney')
     })
 
 
-//Cash Out feature 
+//-----------------Cash Out feature----------------------- 
 document.getElementById('cash-out')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -72,7 +76,7 @@ document.getElementById('cash-out')
         toggling('CashOut') ;
     })
 
-//Transfer Money feature
+//-------------------Transfer Money feature--------------------
 document.getElementById('transfer-money')
     .addEventListener('click' , function(e){
         e.stopPropagation() ;
@@ -81,7 +85,7 @@ document.getElementById('transfer-money')
         
     })
 
-//Get Bonus Feature
+//--------------------Get Bonus Feature-------------------------
 document.getElementById('bonus')
     .addEventListener('click',function(e){
         e.stopPropagation() ;
@@ -90,7 +94,7 @@ document.getElementById('bonus')
     })
 
 
-//Pay Bill Feature pay
+//--------------------Pay Bill Feature pay-------------------
 document.getElementById('pay')
     .addEventListener('click',function(e){
         e.stopPropagation() ;
@@ -98,7 +102,7 @@ document.getElementById('pay')
         toggling('payBill') ;
     })
 
-//Transition History Feature
+//-----------------Transition History Feature-------------------
 document.getElementById('transition')
     .addEventListener('click',function(e){
         e.stopPropagation() ;
@@ -106,7 +110,16 @@ document.getElementById('transition')
         toggling('Transaction-History') ;
     })
 
-//Addd Money Functionality 
+//---------------Log Out Feature---------------------- 
+document.getElementById('logout')
+    .addEventListener('click',function(e){
+        window.location.href = "./index.html" ;
+   
+})
+
+//------------------All Features Functionality----------------
+
+//--------------Addd Money Functionality------------------- 
 document.getElementById('addMoney-btn')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -130,16 +143,9 @@ document.getElementById('addMoney-btn')
 
     })
 
-//Common Functionality Check (Calculation and Number Pin Varify)
-// function Calculation(AcNum,AcPin,acAmount){
-//     const accountNumber = parseInt(document.getElementById(acAmount).value) ;
-//     const accountPin = parseInt(document.getElementById(acPin).value) ;
-//     const Amount = parseInt(document.getElementById(acAmount).value) ;
-//     const value = [accountNumber,accountPin,Amount] ;
-//     return value ;
-// }
 
-//Cash Out functionality 
+
+//---------------------Cash Out functionality-------------------- 
 document.getElementById('Cashout-btn')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -162,7 +168,7 @@ document.getElementById('Cashout-btn')
 
     })
 
-//Transfer-Money Functionality 
+//-----------------Transfer-Money Functionality------------------- 
 document.getElementById('transfer-btn')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -186,7 +192,7 @@ document.getElementById('transfer-btn')
     })
 
 
-//Get Bonus Functionality 
+//-------------------Get Bonus Functionality-------------------- 
 document.getElementById('bonus-btn')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -201,7 +207,7 @@ document.getElementById('bonus-btn')
         transistionHistory('Bonus') ;
     })
 
-//Pay Bill Feature
+//-----------------------Pay Bill Feature-------------------------
 document.getElementById('payBill')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
@@ -219,9 +225,7 @@ document.getElementById('payBill')
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
 
-        //Reset 
         transistionHistory('Pay Bill') ;
-         Reset('acc-Num','pay-pin','amount-pay') ;
-        //  Reset('acc-Num','pay-pin','amount-pay') ;
+        Reset('acc-Num','pay-pin','amount-pay') ;
 
     })

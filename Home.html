@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="right-side">
-            <button class="btn rounded-[8px] bg-[#0808081a] text-[#080808E5]"> <i
+            <button class="btn rounded-[8px] bg-[#0808081a] text-[#080808E5]" id="logout"> <i
                     class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log Out</button>
         </div>
     </nav>
@@ -39,33 +39,39 @@
         </p>
     </div>
 
-    <!-- Option  -->
+    <!-- Option Cards -->
     <div class="card-container max-w-[450px] m-auto bg-white p-[24px] grid grid-cols-3 gap-[17px] rounded-b-2xl ">
+        <!-- Add Money Card -->
         <div id="addMoney"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center  flex-col gap-2 cursor-pointer">
             <img src="assets/wallet1.png" alt="" class=" w-[24px]">
             <p class="text-center ">Add Money</p>
         </div>
+        <!-- Cash OUt CArd -->
         <div id="cash-out"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center flex-col gap-2 cursor-pointer">
             <img src="assets/send1.png" alt="" class=" w-[24px] ">
             <p class="text-center">Cashout</p>
         </div>
+        <!-- Transfer Money Card  -->
         <div id="transfer-money"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center  flex-col gap-2 cursor-pointer">
             <img src="assets/wallet1.png" alt="" class=" w-[24px]">
             <p class="text-center">Transfer Money</p>
         </div>
+        <!-- Bonus Card  -->
         <div id="bonus"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center flex-col gap-2 cursor-pointer">
             <img src="assets/bonus1.png" alt="" class=" w-[24px] ">
             <p class="text-center">Get Bonus</p>
         </div>
+        <!-- Pay BIll Card  -->
         <div id="pay"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center flex-col gap-2 cursor-pointer">
             <img src="assets/purse1.png" alt="" class=" w-[24px] ">
             <p class="text-center">Pay Bill</p>
         </div>
+        <!-- Transisction History Card  -->
         <div id="transition"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center flex-col gap-2 cursor-pointer">
             <img src="assets/transaction1.png" alt="" class=" w-[24px]">
@@ -73,14 +79,14 @@
         </div>
     </div>
     <!-- All forms Section  -->
-    <!-- default  -->
+    <!-- default Form -->
     <div id="default" class="form default max-w-[450px] m-auto px-[24px]">
             <p class="font-bold text-[18px] pt-[30px] pb-[15px]">Default</p>
             <div class="h-[300px] w-full bg-white rounded-2xl flex justify-center items-center">
                 <p class="text-[#08080880] h-">No Option Selected</p>
             </div>
         </div>
-    <!-- add Money  -->
+    <!-- add Money Form -->
     <div id="addMoneyForm" class="form addmoney max-w-[450px] m-auto px-[24px] hidden">
         <p class="font-bold text-[18px] pt-[30px] pb-[15px]">Add Money</p>
         <div class="bg-white rounded-2xl px-[24px]">
@@ -109,6 +115,7 @@
         </div>
 
     </div>
+    <!-- Cash OUt Form  -->
     <div id="CashOut" class="form max-w-[450px] m-auto px-[24px] hidden">
         <p class="font-bold text-[18px] pt-[30px] pb-[15px]">Cash Out</p>
         <div class="bg-white rounded-2xl px-[24px]">
@@ -201,24 +208,7 @@
             <p class="font-bold text-[18px] ">Transaction History</p>
             <p class="text-[14px] text-[#08080880] ">View all</p>
         </div>
-        <div id="all-card-container">
-
-        </div>
-         <!-- Card  -->
-        <!-- <div class="flex justify-between items-center  bg-white rounded-[12px] mb-[12px] p-4">
-            <div class="left-side flex items-center gap-3">
-                <div class="rounded-full bg-[#0808080d] h-[45px] w-[45px] flex justify-center items-center">
-                    <img src="assets/wallet1.png" alt="">
-                </div>
-                <div>
-                    <p class="font-semibold text-[#080808b3]">Electricity Bill</p>
-                <p class="text-[#080808b3] text-[12px]">Today 01:44 AM</p>
-                </div>
-            </div>
-            <div class="right">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
-        </div> -->
+        <div id="all-card-container"></div>
     </div>
 
     <script src="js/home.js"></script>
