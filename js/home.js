@@ -58,6 +58,14 @@ document.getElementById('transfer-money')
         
     })
 
+//Get Bonus Feature
+document.getElementById('bonus')
+    .addEventListener('click',function(e){
+        e.stopPropagation() ;
+        selectIconColor('bonus') ;
+        toggling('get-Bonus') ;
+    })
+
 //Addd Money Functionality 
 document.getElementById('addMoney-btn')
     .addEventListener('click',function (e){
@@ -136,3 +144,18 @@ document.getElementById('transfer-btn')
         Reset('agentNum','trabsferPin','transfer-amount') ;
     })
 
+
+//Get Bonus Functionality 
+document.getElementById('bonus-btn')
+    .addEventListener('click',function (e){
+        e.stopPropagation() ;
+        const coupoCode =document.getElementById('coupon').value ;
+        console.log(coupoCode) ;
+        if(coupoCode == 'gift'){
+            const initial = parseInt( document.getElementById('initial-money').innerText) ;
+            const newBalace = initial + 500 ;
+            document.getElementById('initial-money').innerText = newBalace ;
+        }  
+        //Reset 
+        
+    })
