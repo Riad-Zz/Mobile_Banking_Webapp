@@ -1,39 +1,61 @@
 console.log("Connected2") ;
 
+//Selection Color Control 
+const allCards = document.getElementsByClassName('card') ;
+function selectIconColor(id){
+    for(const card of allCards){
+        card.style.backgroundColor = 'white' ;
+}
+    const selectedCard = document.getElementById(id) ;
+    selectedCard.style.backgroundColor = '#0874f20d' ;
+}
+
+//All Form display COntrol Toggling Feature 
+const allForms = document.getElementsByClassName('form') ;
+function toggling(id){
+    for(form of allForms){
+        form.style.display = 'none' ;
+}
+    const currentForm =  document.getElementById(id) ;
+    currentForm.style.display = 'block' ;
+}
+
+//Form Reset Functionality 
+function Reset(num,pin,amount){
+    document.getElementById(num).value = " "
+        document.getElementById(pin).value = " " ;
+        document.getElementById(amount).value = " " ;
+}
+
+//Add Money Feature
 document.getElementById('addMoney')
     .addEventListener('click' , function(e){
         e.stopPropagation() ;
         // Icon bg Color Control 
-        const Icn = document.getElementById('addMoney') ;
-        Icn.style.backgroundColor = '#0874f20d' ;
-        const IcnCashout = document.getElementById('cash-out');
-        IcnCashout.style.backgroundColor = 'white' ; 
-
+         selectIconColor('addMoney') ;
         //Display Control 
-        const def = document.getElementById('default') ;
-        def.style.display = 'none' ;
-        const cashOut = document.getElementById('CashOut') ;
-        cashOut.style.display = 'none' ;
-        const addMoney = document.getElementById('addMoneyForm') ;
-        addMoney.style.display = 'block' ;
+        toggling('addMoneyForm') ;
     })
 
+
+//Cash Out feature 
 document.getElementById('cash-out')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
         // Icon bg Color Control 
-        const IcnCashout = document.getElementById('cash-out');
-        IcnCashout.style.backgroundColor = '#0874f20d' ; 
-        const IcnaddMoney = document.getElementById('addMoney') ;
-        IcnaddMoney.style.backgroundColor = 'white'
+             selectIconColor('cash-out') ;
 
         //Display Control 
-        const def = document.getElementById('default') ;
-        def.style.display = 'none' ;
-        const addMoney = document.getElementById('addMoneyForm') ;
-        addMoney.style.display = 'none' ; 
-        const cashOut = document.getElementById('CashOut') ;
-        cashOut.style.display = 'block' ;
+        toggling('CashOut') ;
+    })
+
+//Transfer Money feature
+document.getElementById('transfer-money')
+    .addEventListener('click' , function(e){
+        e.stopPropagation() ;
+        selectIconColor('transfer-money') ;
+        toggling('transfer') ;
+        
     })
 
 //Addd Money Functionality 
@@ -55,11 +77,19 @@ document.getElementById('addMoney-btn')
         document.getElementById('initial-money').innerText = newBalace ;
 
         //Reset 
-        document.getElementById('account-number').value = " "
-        document.getElementById('acPin').value = " " ;
-        document.getElementById('addAmount').value = " " ;
+      
+        Reset('account-number','acPin','addAmount') ;
 
     })
+
+//Common Functionality Check (Calculation and Number Pin Varify)
+// function Calculation(AcNum,AcPin,acAmount){
+//     const accountNumber = parseInt(document.getElementById(acAmount).value) ;
+//     const accountPin = parseInt(document.getElementById(acPin).value) ;
+//     const Amount = parseInt(document.getElementById(acAmount).value) ;
+//     const value = [accountNumber,accountPin,Amount] ;
+//     return value ;
+// }
 
 //Cash Out functionality 
 document.getElementById('Cashout-btn')
@@ -80,9 +110,29 @@ document.getElementById('Cashout-btn')
         document.getElementById('initial-money').innerText = newBalace ;
 
         //Reset 
-        document.getElementById('agentNumber').value = " "
-        document.getElementById('cashoutPin').value = " " ;
-        document.getElementById('cashout-amount').value = " " ;
+         Reset('agentNumber','cashoutPin','cashout-amount') ;
 
+    })
+
+//Transfer-Money Functionality 
+document.getElementById('transfer-btn')
+    .addEventListener('click',function (e){
+        e.stopPropagation() ;
+        const agNum =parseInt( document.getElementById('agentNum').value) ;
+        const agPin = parseInt(document.getElementById('trabsferPin').value) ;
+        const agAmount = parseInt(document.getElementById('transfer-amount').value) ;
+        const initial = parseInt( document.getElementById('initial-money').innerText) ;
+
+        if((agNum.toString().length !== 11) || (agPin.toString().length !==4) || (agAmount > initial)){
+            console.log("Invalid") ;
+            return ;
+        }
+
+        
+        const newBalace = initial - agAmount ;
+        document.getElementById('initial-money').innerText = newBalace ;
+
+        //Reset 
+        Reset('agentNum','trabsferPin','transfer-amount') ;
     })
 
