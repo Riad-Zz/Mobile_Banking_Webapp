@@ -130,6 +130,11 @@ document.getElementById('addMoney-btn')
 
         if((acNum.toString().length !== 11) || (acPin.toString().length !==4)){
             console.log("Invalid") ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+});
             return ;
         }
 
@@ -139,6 +144,10 @@ document.getElementById('addMoney-btn')
 
         //Reset 
         transistionHistory('Add Money') ;
+        Swal.fire({
+            title: "Add Money Sucessfull",
+            icon: "success"
+});
         Reset('account-number','acPin','addAmount') ;
 
     })
@@ -156,12 +165,21 @@ document.getElementById('Cashout-btn')
 
         if((agNum.toString().length !== 11) || (agPin.toString().length !==4) || (agAmount > initial)){
             console.log("Invalid") ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+});
             return ;
         }
 
         
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
+        Swal.fire({
+            title: "Cash Out Sucessfull",
+            icon: "success"
+});
         transistionHistory('Cash Out') ;
         //Reset 
          Reset('agentNumber','cashoutPin','cashout-amount') ;
@@ -179,9 +197,17 @@ document.getElementById('transfer-btn')
 
         if((agNum.toString().length !== 11) || (agPin.toString().length !==4) || (agAmount > initial)){
             console.log("Invalid") ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+});
             return ;
         }
-
+        Swal.fire({
+            title: "Transfer Sucessfull",
+            icon: "success"
+});
         
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
@@ -220,7 +246,10 @@ document.getElementById('payBill')
             console.log("Invalid") ;
             return ;
         }
-
+        Swal.fire({
+            title: "Bill Paid",
+            icon: "success"
+});
         
         const newBalace = initial - agAmount ;
         document.getElementById('initial-money').innerText = newBalace ;
