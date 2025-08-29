@@ -66,6 +66,15 @@ document.getElementById('bonus')
         toggling('get-Bonus') ;
     })
 
+
+//Pay Bill Feature pay
+document.getElementById('pay')
+    .addEventListener('click',function(e){
+        e.stopPropagation() ;
+        selectIconColor('pay') ;
+        toggling('payBill') ;
+    })
+
 //Addd Money Functionality 
 document.getElementById('addMoney-btn')
     .addEventListener('click',function (e){
@@ -157,5 +166,28 @@ document.getElementById('bonus-btn')
             document.getElementById('initial-money').innerText = newBalace ;
         }  
         //Reset 
+
+    })
+
+//Pay Bill Feature
+document.getElementById('payBill')
+    .addEventListener('click',function (e){
+        e.stopPropagation() ;
+        const agNum =parseInt( document.getElementById('acc-Num').value) ;
+        const agPin = parseInt(document.getElementById('pay-pin').value) ;
+        const agAmount = parseInt(document.getElementById('amount-pay').value) ;
+        const initial = parseInt( document.getElementById('initial-money').innerText) ;
+
+        if((agNum.toString().length !== 11) || (agPin.toString().length !==4) || (agAmount > initial)){
+            console.log("Invalid") ;
+            return ;
+        }
+
         
+        const newBalace = initial - agAmount ;
+        document.getElementById('initial-money').innerText = newBalace ;
+
+        //Reset 
+         Reset('acc-Num','pay-pin','amount-pay') ;
+
     })

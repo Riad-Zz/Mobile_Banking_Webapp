@@ -61,7 +61,7 @@
             <img src="assets/bonus1.png" alt="" class=" w-[24px] ">
             <p class="text-center">Get Bonus</p>
         </div>
-        <div
+        <div id="pay"
             class="card py-[20px] px-[10px] border-[1px] border-[#0808081a] flex justify-center items-center flex-col gap-2 cursor-pointer">
             <img src="assets/purse1.png" alt="" class=" w-[24px] ">
             <p class="text-center">Pay Bill</p>
@@ -161,6 +161,36 @@
                 <input id="coupon" type="text" placeholder="Enter Coupon" class="input w-full rounded-[32px] px-[20px] py-[20px] bg-[#f4f5f7] focus:outline-none text-[1rem]"/>
             </div>
             <button id="bonus-btn" class="btn btn-active bg-[#0874F2] mt-[16px] mb-[24px] w-full rounded-3xl text-white font-semibold text-[1.25rem]">Get Bonus</button>
+        </div>
+
+    </div>
+
+    <!-- pay Bill form  -->
+     <div id="payBill" class="form addmoney max-w-[450px] m-auto px-[24px] hidden">
+        <p class="font-bold text-[18px] pt-[30px] pb-[15px]">Pay Bill</p>
+        <div class="bg-white rounded-2xl px-[24px]">
+            <div>
+                <label class="block pt-[24px] mb-[12px] font-bold text-[#080808b3]">Select A Bank</label>
+                <select class="select rounded-[32px] bg-[#f4f5f7] w-full focus:outline-none text-[16px]" required>
+                    <option disabled selected>Select to pay</option>
+                    <option>Islamic Bank Limited</option>
+                    <option>Sonali Bank Limited</option>
+                    <option>Rupali Bank Limited</option>
+                </select>
+            </div>
+            <div>
+                <label class="block pt-[16px] mb-[12px] font-bold text-[#080808b3]">Biller Accout Number</label>
+                <input id="acc-Num" type="text" placeholder="Enter 11 digit account number" class="input w-full rounded-[32px] px-[20px] py-[20px] bg-[#f4f5f7] focus:outline-none text-[1rem]" required/>
+            </div>
+            <div>
+                <label class="block pt-[16px] mb-[12px] font-bold text-[#080808b3]">Amount to Pay</label>
+                <input id="amount-pay" type="text" placeholder="Enter Amount" class="input w-full rounded-[32px] px-[20px] py-[20px] bg-[#f4f5f7] focus:outline-none text-[1rem]" required/>
+            </div>
+            <div>
+                <label class="block pt-[16px] mb-[12px] font-bold text-[#080808b3]">Pin Number</label>
+                <input id="pay-pin" type="text" placeholder="Enter Pin Number" class="input w-full rounded-[32px] px-[20px] py-[20px] bg-[#f4f5f7] focus:outline-none text-[1rem]" required/>
+            </div>
+            <button id="pay-btn" class="btn btn-active bg-[#0874F2] mt-[16px] mb-[24px] w-full rounded-3xl text-white font-semibold text-[1.25rem]">Pay Now</button>
         </div>
 
     </div>
