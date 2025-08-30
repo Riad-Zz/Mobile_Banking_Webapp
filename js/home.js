@@ -242,6 +242,9 @@ document.getElementById('bonus-btn')
             title: "Bonus $500 !",
             icon: "success"
 });
+         HideIt() ;
+            transistionHistory('Bonus') ;
+        Reset('coupon') ; 
         }else{
             Swal.fire({
                 icon: "error",
@@ -251,9 +254,8 @@ document.getElementById('bonus-btn')
         }
         
         //Reset 
-        transistionHistory('Bonus') ;
-        Reset('coupon') ; 
-        HideIt() ;
+       
+        
     })
 
 //-----------------------Pay Bill Feature-------------------------
