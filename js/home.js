@@ -29,6 +29,12 @@ function Reset(num,pin,amount){
         document.getElementById(amount).value = " " ;
 }
 
+//-----------------Deafault Display Blocking Transaction----------
+function HideIt(){
+    const defTrans = document.getElementById('deafaultTeansactions') ;
+    defTrans.style.display = 'none' ;
+}
+
 //-----------------Common Transition History---------------- 
 function transistionHistory(name){
     const newChild = document.createElement('div') ;
@@ -108,6 +114,7 @@ document.getElementById('transition')
         e.stopPropagation() ;
         selectIconColor('transition') ;
         toggling('Transaction-History') ;
+       
     })
 
 //---------------Log Out Feature---------------------- 
@@ -144,6 +151,7 @@ document.getElementById('addMoney-btn')
 
         //Reset 
         transistionHistory('Add Money') ;
+        HideIt() ;
         Swal.fire({
             title: "Add Money Sucessfull",
             icon: "success"
@@ -181,6 +189,7 @@ document.getElementById('Cashout-btn')
             icon: "success"
 });
         transistionHistory('Cash Out') ;
+        HideIt() ;
         //Reset 
          Reset('agentNumber','cashoutPin','cashout-amount') ;
 
@@ -213,6 +222,7 @@ document.getElementById('transfer-btn')
         document.getElementById('initial-money').innerText = newBalace ;
 
         transistionHistory('Money Transfer') ;
+        HideIt() ;
         //Reset 
         Reset('agentNum','trabsferPin','transfer-amount') ;
     })
@@ -228,13 +238,26 @@ document.getElementById('bonus-btn')
             const initial = parseInt( document.getElementById('initial-money').innerText) ;
             const newBalace = initial + 500 ;
             document.getElementById('initial-money').innerText = newBalace ;
-        }  
+            Swal.fire({
+            title: "Bonus $500 !",
+            icon: "success"
+});
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Wrong Coupon Code!",
+});
+        }
+        
         //Reset 
         transistionHistory('Bonus') ;
+        Reset('coupon') ; 
+        HideIt() ;
     })
 
 //-----------------------Pay Bill Feature-------------------------
-document.getElementById('payBill')
+document.getElementById('pay-btn')
     .addEventListener('click',function (e){
         e.stopPropagation() ;
         const agNum =parseInt( document.getElementById('acc-Num').value) ;
@@ -244,6 +267,11 @@ document.getElementById('payBill')
 
         if((agNum.toString().length !== 11) || (agPin.toString().length !==4) || (agAmount > initial)){
             console.log("Invalid") ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+});
             return ;
         }
         Swal.fire({
@@ -255,6 +283,7 @@ document.getElementById('payBill')
         document.getElementById('initial-money').innerText = newBalace ;
 
         transistionHistory('Pay Bill') ;
+        HideIt() ;
         Reset('acc-Num','pay-pin','amount-pay') ;
 
     })
